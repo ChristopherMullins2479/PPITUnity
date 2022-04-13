@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
+
+    //variables with public getters and private setters
     public Board board { get; private set; }
     public TetrominoData data { get; private set; }
     public Vector3Int[] cells { get; private set; }
@@ -44,9 +46,10 @@ public class Piece : MonoBehaviour
 
         // We use a timer to allow the player to make adjustments to the piece
         // before it locks in place
+        //This gives time to the player to ajust into timy places
         lockTime += Time.deltaTime;
 
-        // Handle rotation
+        // rotation depending on input
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Rotate(-1);
@@ -70,6 +73,7 @@ public class Piece : MonoBehaviour
         }
 
         // Advance the piece to the next row every x seconds
+        //this can be ajusted as the game goes on to make it more difficult
         if (Time.time > stepTime)
         {
             Step();
