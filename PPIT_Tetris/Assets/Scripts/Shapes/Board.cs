@@ -3,12 +3,16 @@ using UnityEngine.Tilemaps;
 
 public class Board : MonoBehaviour
 {
+    [SerializeField] private AudioClip lineClearSound;
+    private AudioSource audioSource;
     public Tilemap tilemap { get; private set; }
     public Piece activePiece { get; private set; }
 
     public TetrominoData[] tetrominoes;
     public Vector2Int boardSize = new Vector2Int(10, 20);
     public Vector3Int spawnPosition = new Vector3Int(-1, 8, 0);
+
+    public int LineCount = 0;
 
     public RectInt Bounds
     {
@@ -33,6 +37,7 @@ public class Board : MonoBehaviour
     private void Start()
     {
         SpawnPiece();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void SpawnPiece()
@@ -55,8 +60,9 @@ public class Board : MonoBehaviour
     public void GameOver()
     {
         tilemap.ClearAllTiles();
-
-        // Do anything else you want on game over here..
+        //sets all back to 0
+        LineCount = 0;
+        print("Game Over: "+LineCount);
     }
 
     public void Set(Piece piece)
@@ -150,7 +156,11 @@ public class Board : MonoBehaviour
         {
             Vector3Int position = new Vector3Int(col, row, 0);
             tilemap.SetTile(position, null);
+            //audio.PlayOneShot(lineClear);
         }
+        LineCount++;
+        print(LineCount);
+        audioSource.PlayOneShot(lineClearSound);
 
         // Shift every row above down one
         while (row < bounds.yMax)
