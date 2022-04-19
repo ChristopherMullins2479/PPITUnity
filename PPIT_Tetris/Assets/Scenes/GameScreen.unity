@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &235796886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 235796888}
+  - component: {fileID: 235796887}
+  m_Layer: 0
+  m_Name: gameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &235796887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235796886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856420b63c2d8ba4d92a936c63a12d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineCount: {fileID: 1083745976}
+  scoreText: {fileID: 1394576229}
+--- !u!4 &235796888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235796886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &266595872
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +694,7 @@ Transform:
   m_GameObject: {fileID: 1049935887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.5, y: 20.5, z: 1}
+  m_LocalScale: {x: 8.5, y: 16.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1161,7 +1206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d023cbde10464b8f582e095bfae0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineClearSound: {fileID: 0}
+  lineClearSound: {fileID: 8300000, guid: 7471894e2a5c0084b91f1bdc4382cd0f, type: 3}
   tetrominoes:
   - tile: {fileID: 11400000, guid: f7f6910ee9c950448873c0c69770f393, type: 2}
     tetromino: 0
@@ -1179,7 +1224,6 @@ MonoBehaviour:
     tetromino: 6
   boardSize: {x: 10, y: 20}
   spawnPosition: {x: 0, y: 8, z: 0}
-  LineCount: 0
 --- !u!156049354 &1416002327
 Grid:
   m_ObjectHideFlags: 0

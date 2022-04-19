@@ -12,7 +12,9 @@ public class Board : MonoBehaviour
     public Vector2Int boardSize = new Vector2Int(10, 20);
     public Vector3Int spawnPosition = new Vector3Int(-1, 8, 0);
 
-    public int LineCount = 0;
+    private int LineCount = 0;
+    private int points = 0;
+    private gameController gc;
 
     public RectInt Bounds
     {
@@ -38,6 +40,7 @@ public class Board : MonoBehaviour
     {
         SpawnPiece();
         audioSource = GetComponent<AudioSource>();
+        //gw = GetComponent<gameController>();
     }
 
     public void SpawnPiece()
@@ -150,6 +153,7 @@ public class Board : MonoBehaviour
     public void LineClear(int row)
     {
         RectInt bounds = Bounds;
+        gc = FindObjectOfType<gameController>();
 
         // Clear all tiles in the row
         for (int col = bounds.xMin; col < bounds.xMax; col++)
@@ -160,7 +164,12 @@ public class Board : MonoBehaviour
         }
         LineCount++;
         print(LineCount);
-        audioSource.PlayOneShot(lineClearSound);
+        gc.UpdateLineCount(LineCount);
+        gc.UpdateScore(100*LineCount);
+
+        //reset to 0
+        LineCount = 0;
+        points = 0;
 
         // Shift every row above down one
         while (row < bounds.yMax)
