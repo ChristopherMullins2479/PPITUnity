@@ -49,14 +49,10 @@ public class Piece : MonoBehaviour
         //This gives time to the player to ajust into timy places
         lockTime += Time.deltaTime;
 
-        // rotation depending on input
-        if (Input.GetKeyDown(KeyCode.Q))
+        // rotation using up arrow
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Rotate(-1);
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            Rotate(1);
         }
 
         // Handle hard drop

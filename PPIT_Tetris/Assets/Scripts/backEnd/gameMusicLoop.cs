@@ -8,8 +8,9 @@ public class gameMusicLoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        musicSource = GetComponent<AudioSource>();
+        musicSource.loop = true;
         musicSource.PlayOneShot(gameMusic);
-        musicSource.PlayScheduled(AudioSettings.dspTime + gameMusic.length);
     }
 
     // Update is called once per frame
