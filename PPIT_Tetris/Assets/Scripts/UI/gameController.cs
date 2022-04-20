@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
+//this allows the ui to change 
 public class gameController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI lineCount;
