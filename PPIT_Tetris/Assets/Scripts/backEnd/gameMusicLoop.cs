@@ -18,4 +18,18 @@ public class gameMusicLoop : MonoBehaviour
     {
 
     }
+
+    public void muteAudio()
+    {
+      
+        if (musicSource.mute == false)
+        {
+            musicSource.mute = true;
+            print(musicSource.mute);
+        }
+        else
+        {
+            musicSource.mute = false;
+        }
+    }
 }

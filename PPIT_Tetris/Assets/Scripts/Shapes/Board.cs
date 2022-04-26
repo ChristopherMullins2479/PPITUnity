@@ -16,6 +16,9 @@ public class Board : MonoBehaviour
     private int points = 0;
     private gameController gc;
 
+    //count blocks counted
+    int blocksCleared = 0;
+
     public RectInt Bounds
     {
         get
@@ -161,15 +164,25 @@ public class Board : MonoBehaviour
             Vector3Int position = new Vector3Int(col, row, 0);
             tilemap.SetTile(position, null);
             //audio.PlayOneShot(lineClear);
+            blocksCleared++;
         }
         LineCount++;
-        print(LineCount);
+        print("Blocks: " + blocksCleared);
         gc.UpdateLineCount(LineCount);
-        gc.UpdateScore(100*LineCount);
+        gc.UpdateScore(100 * LineCount);
+
+        if (blocksCleared >= 20)
+        {
+            gc.UpdateScore(800);
+            //gc.UpdateScore(-400);
+            print("Tetris");
+            blocksCleared = 0;
+        }
 
         //reset to 0
         LineCount = 0;
         points = 0;
+        //blocksCleared = 0;
 
         // Shift every row above down one
         while (row < bounds.yMax)
