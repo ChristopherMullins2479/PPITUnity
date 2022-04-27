@@ -155,6 +155,8 @@ MonoBehaviour:
   lineCount: {fileID: 1083745976}
   scoreText: {fileID: 1394576229}
   levelText: {fileID: 491910009}
+  lines: 0
+  p: {fileID: 1416002329}
 --- !u!4 &235796888
 Transform:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class Board : MonoBehaviour
     private int LineCount = 0;
     private int points = 0;
     private gameController gc;
+    public Piece piece { get; private set; }
 
     //count blocks counted
     int blocksCleared = 0;
@@ -127,6 +128,7 @@ public class Board : MonoBehaviour
             if (IsLineFull(row))
             {
                 LineClear(row);
+                print("line");
             }
             else
             {
@@ -167,17 +169,9 @@ public class Board : MonoBehaviour
             blocksCleared++;
         }
         LineCount++;
-        print("Blocks: " + blocksCleared);
+        print("Blocks: " + blocksCleared/10);
         gc.UpdateLineCount(LineCount);
         gc.UpdateScore(100 * LineCount);
-
-        if (blocksCleared >= 20)
-        {
-            gc.UpdateScore(800);
-            //gc.UpdateScore(-400);
-            print("Tetris");
-            blocksCleared = 0;
-        }
 
         //reset to 0
         LineCount = 0;

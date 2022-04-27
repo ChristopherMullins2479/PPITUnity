@@ -242,4 +242,10 @@ public class Piece : MonoBehaviour
         }
     }
 
+    public void levelUp()
+    {
+        stepDelay -= 0.1f;
+        print("level up");
+    }
+
 }

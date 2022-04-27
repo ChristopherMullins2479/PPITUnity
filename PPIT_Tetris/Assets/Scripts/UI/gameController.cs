@@ -16,6 +16,10 @@ public class gameController : MonoBehaviour
     private int level = 1;
     private int levelCounter = 1;
 
+    public int lines;
+
+    public Piece p;
+
     //controls the line counter
     private void UpdateLineCountText()
     {
@@ -26,6 +30,7 @@ public class gameController : MonoBehaviour
     {
         linecount += LinesCleared;
         UpdateLineCountText();
+        lines = linecount;
         UpdateLevel();
     }
 
@@ -45,17 +50,35 @@ public class gameController : MonoBehaviour
     private void UpdateLevelText()
     {
         levelText.text = ("LEVEL: "+level.ToString("000"));
+
+        //will up speed untill level 10
+        if(level <= 11)
+        {
+            p.stepDelay = p.stepDelay - 0.1f;
+        }
+        else
+        {
+
+        }
+        
     }
 
     private void UpdateLevel()
     {
-        if (linecount == levelCounter+10)
+        if (linecount == levelCounter + 10)
         {
             level += 1;
             UpdateLevelText();
             levelCounter = linecount;
-        } 
-      
+        }
+
     }
+
+    public int returnScore()
+    {
+        int points = score;
+        return points;
+    }
+
 
 }
