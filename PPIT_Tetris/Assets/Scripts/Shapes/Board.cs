@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class Board : MonoBehaviour
 {
@@ -67,6 +68,7 @@ public class Board : MonoBehaviour
     public void GameOver()
     {
         tilemap.ClearAllTiles();
+        SceneManager.LoadScene(3);
         //sets all back to 0
         LineCount = 0;
         print("Game Over: "+LineCount);

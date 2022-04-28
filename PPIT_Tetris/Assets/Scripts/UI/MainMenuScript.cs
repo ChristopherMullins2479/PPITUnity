@@ -15,4 +15,14 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void menueFunction()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void quitFunction()
+    {
+        Application.Quit();
+    }
+
 }

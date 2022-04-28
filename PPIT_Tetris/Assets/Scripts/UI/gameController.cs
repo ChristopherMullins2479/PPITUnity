@@ -10,11 +10,14 @@ public class gameController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI lineCount;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI gameOverPoints;
 
     private int linecount = 0;
     private int score = 0;
+    public int tolalScore = 0;
     private int level = 1;
     private int levelCounter = 1;
+    private int levelPoints = 2500;
 
     public int lines;
 
@@ -38,11 +41,13 @@ public class gameController : MonoBehaviour
     private void UpdateScoreText()
     {
         scoreText.text = (score.ToString("00000000"));
+        print(score);
     }
 
     public void UpdateScore(int points)
     {
         score += points;
+        tolalScore = tolalScore + points;
         UpdateScoreText();
     }
 
@@ -52,7 +57,8 @@ public class gameController : MonoBehaviour
         levelText.text = ("LEVEL: "+level.ToString("000"));
 
         //will up speed untill level 10
-        if(level <= 11)
+        //then the speed will stop increassing
+        if(level <= 10)
         {
             p.stepDelay = p.stepDelay - 0.1f;
         }
@@ -70,14 +76,15 @@ public class gameController : MonoBehaviour
             level += 1;
             UpdateLevelText();
             levelCounter = linecount;
+            UpdateScore(levelPoints);
         }
 
     }
 
-    public int returnScore()
+    public void returnScore()
     {
-        int points = score;
-        return points;
+        gameOverPoints.text = ("Score : "+score.ToString("00000000"));
+        print("Last Score " + score);
     }
 
 

@@ -157,11 +157,11 @@ public class Piece : MonoBehaviour
         // and we need to revert
         int originalRotation = rotationIndex;
 
-        // Rotate all of the cells using a rotation matrix
+        // Rotate all of the cells using a matrix
         rotationIndex = Wrap(rotationIndex + direction, 0, 4);
         ApplyRotationMatrix(direction);
 
-        // Revert the rotation if the wall kick tests fail
+        // Revert the rotation if the wall wont be hit by a rotation
         if (!TestWallKicks(rotationIndex, direction))
         {
             rotationIndex = originalRotation;
